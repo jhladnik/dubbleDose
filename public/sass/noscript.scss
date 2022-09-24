@@ -1,0 +1,33 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/vendor';
+@import 'libs/breakpoints';
+
+/* Panel */
+
+	.panel {
+		margin: 0 0 (_size(element-margin) * 1.5) 0;
+
+		body.is-preload-0 & {
+			opacity: 1;
+
+			> .image {
+				@include vendor('transform', 'none !important');
+			}
+
+			> .content {
+				@include vendor('transform', 'none !important');
+			}
+		}
+	}
+
+/* Footer */
+
+	#footer {
+		margin-top: 0;
+
+		body.is-preload-0 & {
+			opacity: 1;
+		}
+	}

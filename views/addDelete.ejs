@@ -1,0 +1,37 @@
+<%- include('partials/header') -%>
+    <article id="addOrDelete" class="panel secondary">
+        <div class="image">
+            <img src="images/pic04.png" alt="pic of pill containers" data-position="bottom center" />
+        </div>
+        <div class="content">
+            <ul class="actions animated spinX">
+                <li><a href="#" class="button small back">Back</a></li>
+            </ul>
+            <div class="inner">
+                <header>
+                    <h2>Add / Delete</h2>
+                </header>
+                <form action="/addordelete" method="POST">
+                    <div class="fields">
+                        <div class="field half">
+                            <label for="name">Substance</label>
+                            <input type="text" name="name" id="name" />
+                        </div>
+                        <div class="field half">
+                            <label for="email">Dosage</label>
+                            <input type="text" name="email" id="email" />
+                        </div>
+                        <div class="field">
+                            <label for="message">Notes</label>
+                            <textarea name="message" id="message" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Add" class="primary" /></li>
+                        <li><input type="submit" value="Delete" /></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </article>
+<%- include('partials/footer') -%>
