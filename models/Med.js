@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const MedSchema = new mongoose.Schema({
-  substance: {
+  med: {
     type: String,
     required: true,
   },
