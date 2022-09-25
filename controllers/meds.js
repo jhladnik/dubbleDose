@@ -17,6 +17,14 @@ module.exports = {
       console.log(err);
     }
   },
+  getAddDelete: async (req, res) => {
+    try {
+      //const meds = await Med.find({ user: req.user.id });
+      res.render("addDelete.ejs");
+    } catch (err) {
+      console.log(err);
+    }
+  },
 //   getHistory: async (req, res) => {
 //     try {
 //       const post = await Post.findById(req.params.id);
@@ -30,10 +38,9 @@ module.exports = {
     try {
 
       await Med.create({
-        medName: req.body.substance,
+        substance: req.body.substance,
         dosage: req.body.dosage,
         notes: req.body.notes,
-        user: req.user.id,
       });
       console.log("Substance has been added!");
       res.redirect("/profile");

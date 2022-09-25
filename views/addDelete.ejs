@@ -1,37 +1,38 @@
 <%- include('partials/header') -%>
-    <article id="addOrDelete" class="panel secondary">
+
+    <article id="addDelete" class="panel secondary">
         <div class="image">
             <img src="images/pic04.png" alt="pic of pill containers" data-position="bottom center" />
         </div>
         <div class="content">
             <ul class="actions animated spinX">
-                <li><a href="#" class="button small back">Back</a></li>
+                <li><a href="/profile" class="button small back">Menu</a></li>
             </ul>
             <div class="inner">
                 <header>
-                    <h2>Add / Delete</h2>
+                    <h2>Add Substance</h2>
                 </header>
-                <form action="/addordelete" method="POST">
+                <form action="med/createMed" enctype="multipart/form-data" method="POST">
                     <div class="fields">
                         <div class="field half">
-                            <label for="name">Substance</label>
-                            <input type="text" name="name" id="name" />
+                            <label class="form-label" for="substance">Substance</label>
+                            <input class="form-control" type="text" name="substance" id="substance">
                         </div>
                         <div class="field half">
-                            <label for="email">Dosage</label>
-                            <input type="text" name="email" id="email" />
+                            <label class="form-label" for="dosage">Dosage</label>
+                            <input class="form-control" type="text" name="dosage" id="dosage">
                         </div>
                         <div class="field">
-                            <label for="message">Notes</label>
-                            <textarea name="message" id="message" rows="5"></textarea>
+                            <label class="form-label" for="notes">Notes</label>
+                            <textarea class="form-control" name="notes" id="notes" rows="5"></textarea>
                         </div>
                     </div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Add" class="primary" /></li>
-                        <li><input type="submit" value="Delete" /></li>
+                    <ul class="field actions">
+                        <li><input type="submit" value="submit" class="primary" /></li>
                     </ul>
                 </form>
             </div>
         </div>
     </article>
+
 <%- include('partials/footer') -%>

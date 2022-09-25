@@ -9,7 +9,7 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
-const medsRoutes = require("./routes/meds");
+const medRoutes = require("./routes/meds");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -26,11 +26,6 @@ app.set("view engine", "ejs");
 
 //Static Folder
 app.use(express.static("public"));
-// app.use('/css', express.static(__dirname + 'public/css'));
-// app.use('/js', express.static(__dirname + 'public/js'));
-// app.use('/imgs', express.static(__dirname + 'public/imgs'));
-// app.use('/sass', express.static(__dirname + 'public/sass'));
-// app.use('/webfonts', express.static(__dirname + 'public/webfonts'));
 
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
@@ -61,7 +56,7 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
-app.use("/meds", medsRoutes);//is this going to be an issue with med vs. meds
+app.use("/med", medRoutes);//is this going to be an issue with med vs. meds
 
 //Server Running
 app.listen(process.env.PORT, () => {
