@@ -12,19 +12,19 @@
                 <header>
                     <h2>Add Substance</h2>
                 </header>
-                <form action="med/createMed" enctype="multipart/form-data" method="POST">
+                <form action="/med/createMed" method="POST">
                     <div class="fields">
                         <div class="field half">
-                            <label class="form-label" for="substance">Substance</label>
-                            <input class="form-control" type="text" name="substance" id="substance">
+                            <label for="med">Substance</label>
+                            <input type="text" name="med" id="med">
                         </div>
                         <div class="field half">
-                            <label class="form-label" for="dosage">Dosage</label>
-                            <input class="form-control" type="text" name="dosage" id="dosage">
+                            <label for="dosage">Dosage</label>
+                            <input type="text" name="dosage" id="dosage">
                         </div>
                         <div class="field">
-                            <label class="form-label" for="notes">Notes</label>
-                            <textarea class="form-control" name="notes" id="notes" rows="5"></textarea>
+                            <label for="notes">Notes</label>
+                            <textarea  name="notes" id="notes" rows="5"></textarea>
                         </div>
                     </div>
                     <ul class="field actions">
