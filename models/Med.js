@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
 
 const MedSchema = new mongoose.Schema({
-  med: {
+  substance: {
     type: String,
     required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
   },
   notes: {
     type: String,
@@ -20,6 +16,10 @@ const MedSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 
