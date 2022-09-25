@@ -1,4 +1,4 @@
-const Med  = require("../models/Med");
+const Med = require("../models/Med");
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -38,7 +38,7 @@ module.exports = {
     try {
 
       await Med.create({
-        substance: req.body.substance,
+        med: req.body.substance,
         dosage: req.body.dosage,
         notes: req.body.notes,
       });
