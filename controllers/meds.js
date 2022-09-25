@@ -25,15 +25,16 @@ module.exports = {
       console.log(err);
     }
   },
-//   getHistory: async (req, res) => {
-//     try {
-//       const post = await Post.findById(req.params.id);
-//       const comments = await Comment.find({post:req.params.id}).sort({ createdAt: "desc" }).lean();
-//       res.render("post.ejs", { post: post, user: req.user, comments: comments});
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   },
+  getHistory: async (req, res) => {
+    try {
+      // const post = await Post.findById(req.params.id);
+      // const comments = await Comment.find({post:req.params.id}).sort({ createdAt: "desc" }).lean();
+      // res.render("post.ejs", { post: post, user: req.user, comments: comments});
+      res.render("history.ejs");
+    } catch (err) {
+      console.log(err);
+    }
+  },
   createMed: async (req, res) => {
     try {
 
