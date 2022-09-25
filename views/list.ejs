@@ -22,46 +22,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="vitamin" id="numOne">
-                                <td class="vitamin"  id="medOne">#medOne</td>
-                                <td class="medNote" id="noteOne">Time:</td>
-                                <td class="dosage" id="doseOne">#mg</td>
-                                <td align="center"><a href="#" class="button primary" >Take</a></td>
+                            <tr>
+                                <ul>
+                                    <% for(var i=0; i<meds.length; i++) {%>
+                                        <li>
+                                            <td>
+                                                <%= meds[i].med%>
+                                            </td>
+                                            <td>
+                                                <%= notes[i].med%>
+                                            </td>
+                                            <td>
+                                                <%= dosage[i].med%>
+                                            </td>
+                                            <form align="center" action="/med/takeMed/<%=med.id%>?_method=PUT" method="POST">
+                                                <ul>
+                                                    <li><a href="" class="button">Take</a></li>
+                                                </ul>
+                                            </form>
+                                            <form align="center" action="/med/deleteMed/<%=med.id%>?_method=DELETE" method="POST">
+                                                <ul>
+                                                    <li><a href="" class="button primary">Delete</a></li>
+                                                </ul>
+                                            </form>
+                                            <% } %>
+                                        </li>
+                                </ul>
                             </tr>
-                            <tr class="vitamin" id="numTwo">
-                                <td class="vitamin" id="medTwo">#medTwo</td>
-                                <td class="medNote" id="noteTwo">Time:</td>
-                                <td class="dosage" id="doseTwo">#mg</td>
-                                <td align="center"><a href="#" class="button primary">Take</a></td>
-                            </tr>
-                            <tr class="vitamin" id="numThree">
-                                <td class="vitamin" id="medThree">#medThree</td>
-                                <td class="medNote"  id="noteThree">Time:</td>
-                                <td class="dosage" id="doseThree">#mg</td>
-                                <td align="center"><a href="#" class="button primary">Take</a></td>
-                            </tr>
-                            <tr class="vitamin" id="numFour">
-                                <td class="vitamin" id="medFour">#medFour</td>
-                                <td class="medNote"  id="noteFour">Time:</td>
-                                <td class="dosage" id="doseFour">#mg</td>
-                                <td align="center"><a href="#" class="button primary">Take</a></td>
-                            </tr>
-                            <tr class="vitamin" id="numFive">
-                                <td class="vitamin" id="medFive">#medFive</td>
-                                <td class="medNote"  id="noteFive">Time:</td>
-                                <td class="dosage" id="doseFive">#mg</td>
-                                <td align="center"><a href="#" class="button primary">Take</a></td>
-                            </tr>
-                            <tr class="vitamin" id="numSix">
-                                <td class="vitamin" id="medSix">#medSix</td>
-                                <td class="medNote"  id="noteSix">Time:</td>
-                                <td class="dosage" id="doseSix">#mg</td>
-                                <td align="center"><a href="#" class="button primary">Take</a></td>
-                            </tr>
-                            <tr class="vitamin" id="numSeven"></tr>
-                            <tr class="vitamin" id="numEight"></tr>
-                            <tr class="vitamin" id="numNine"></tr>
-                            <tr class="vitamin" id="numTen"></tr>
                         </tbody>
                     </table>
                 </div>
