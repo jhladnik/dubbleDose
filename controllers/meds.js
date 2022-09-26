@@ -1,4 +1,7 @@
 const Med = require("../models/Med");
+const express = require('express');
+const router = express.Router();
+const {ensureAuth} = require('../middleware/auth')
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -11,8 +14,9 @@ module.exports = {
   },
   getList: async (req, res) => {
     try {
-      const meds = await Med.find().sort({ createdAt: "desc" }).lean();
-      res.render("list.ejs", { meds: meds });
+      const meds = await Med.find({userId: req.user.id})
+      //const meds = await Med.find().sort({ createdAt: "desc" }).lean();
+      res.render("list.ejs", { med: req.user.med, notes: req.body.notes, dosage: req.body.dosage});
     } catch (err) {
       console.log(err);
     }
@@ -35,16 +39,17 @@ module.exports = {
       console.log(err);
     }
   },
-  createMed: async (req, res) => {
-    try {
 
+  createMed: async (req, res) => {
+    try{
       await Med.create({
-        med: req.body.substance,
+        meds: req.body.med,
         dosage: req.body.dosage,
         notes: req.body.notes,
-      });
-      console.log("Substance has been added!");
+        user: req.user.id
+      })
       res.redirect("/profile");
+      console.log("Substance has been added!");
     } catch (err) {
       console.log(err);
     }
