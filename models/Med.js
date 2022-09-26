@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const MedSchema = new mongoose.Schema({
+const MedSchema =  new mongoose.Schema({
   med: {
     type: String,
     required: true,
@@ -17,6 +17,7 @@ const MedSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
+  //put this back in after testing
   createdAt: {
     type: Date,
     default: Date.now,
