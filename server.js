@@ -9,7 +9,7 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
-const medRoutes = require("./routes/meds");
+const medsRoutes = require("./routes/meds");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -56,7 +56,7 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
-app.use("/med", medRoutes);//is this going to be an issue with med vs. meds
+app.use("/meds", medsRoutes);//is this going to be an issue with med vs. meds
 
 //Server Running
 app.listen(process.env.PORT, () => {
