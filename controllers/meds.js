@@ -14,9 +14,8 @@ module.exports = {
   },
   getList: async (req, res) => {
     try {
-      const meds = await Med.find({userId: req.user.id})
-      //const meds = await Med.find().sort({ createdAt: "desc" }).lean();
-      res.render("list.ejs", { med: req.user.med, notes: req.body.notes, dosage: req.body.dosage});
+      const meds = await Med.find({user: req.user.id});
+      res.render("list.ejs", {meds: meds, user: req.user});
     } catch (err) {
       console.log(err);
     }
@@ -43,7 +42,7 @@ module.exports = {
   createMed: async (req, res) => {
     try{
       await Med.create({
-        meds: req.body.med,
+        substance: req.body.substance,
         dosage: req.body.dosage,
         notes: req.body.notes,
         user: req.user.id
@@ -70,14 +69,14 @@ module.exports = {
   },
   deleteMed: async (req, res) => {
     try {
-      // Find post by id
-      let med = await Med.findById({ _id: req.params.id });
-      // Delete post from db
-      await Post.remove({ _id: req.params.id });
+      // Find med by id
+      let substance = await Substance.findById({ _id: req.params._id });
+      // Delete med from db
+      await Substance.remove({ _id: req.params._id });
       console.log("Deleted Med");
-      res.redirect("/profile");
+      res.redirect("/list");
     } catch (err) {
-      res.redirect("/profile");
+      res.redirect("/list");
     }
   },
 };
