@@ -16,39 +16,29 @@
                     <table class="alt">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Substance</th>
                                 <th>Notes</th>
                                 <th>Dosage</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <ul>
-                                    <% for(var i=0; i<meds.length; i++) {%>
-                                        <li>
-                                            <td>
-                                                <%= meds[i].med%>
-                                            </td>
-                                            <td>
-                                                <%= notes[i].med%>
-                                            </td>
-                                            <td>
-                                                <%= dosage[i].med%>
-                                            </td>
-                                            <form align="center" action="/med/takeMed/<%=med.id%>?_method=PUT" method="POST">
-                                                <ul>
-                                                    <li><a href="" class="button">Take</a></li>
+                                <% for(var i=0; i<meds.length; i++) {%>
+                                    <tr>
+                                        <td> <%= meds[i].substance%></td>
+                                        <td> <%= meds[i].notes%></td>
+                                        <td> <%= meds[i].dosage%></td>
+                                        <td>
+                                            <form align="center" action="" method="POST">
+                                                <ul class="field actions"><li><input type="submit" value="Take" class="button"/></li>
                                                 </ul>
                                             </form>
-                                            <form align="center" action="/med/deleteMed/<%=med.id%>?_method=DELETE" method="POST">
-                                                <ul>
-                                                    <li><a href="" class="button primary">Delete</a></li>
+                                            <form align="center" action="/meds/deleteMed/<%= meds[i]%>?_method=DELETE" method="POST">
+                                                <ul class="field actions"><li><input type="submit" value="Delete" class="button primary"/></li>
                                                 </ul>
                                             </form>
-                                            <% } %>
-                                        </li>
-                                </ul>
-                            </tr>
+                                        </td>
+                                        <% } %>
+                                    </tr>
                         </tbody>
                     </table>
                 </div>
