@@ -1,4 +1,7 @@
 const Med = require("../models/Med");
+const express = require('express');
+const router = express.Router();
+const {ensureAuth} = require('../middleware/auth')
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -11,8 +14,8 @@ module.exports = {
   },
   getList: async (req, res) => {
     try {
-      const meds = await Med.find().sort({ createdAt: "desc" }).lean();
-      res.render("list.ejs", { meds: meds });
+      const meds = await Med.find({user: req.user.id});
+      res.render("list.ejs", {meds: meds, user: req.user});
     } catch (err) {
       console.log(err);
     }
@@ -35,16 +38,17 @@ module.exports = {
       console.log(err);
     }
   },
-  createMed: async (req, res) => {
-    try {
 
+  createMed: async (req, res) => {
+    try{
       await Med.create({
-        med: req.body.substance,
+        substance: req.body.substance,
         dosage: req.body.dosage,
         notes: req.body.notes,
-      });
-      console.log("Substance has been added!");
+        user: req.user.id
+      })
       res.redirect("/profile");
+      console.log("Substance has been added!");
     } catch (err) {
       console.log(err);
     }
@@ -65,14 +69,14 @@ module.exports = {
   },
   deleteMed: async (req, res) => {
     try {
-      // Find post by id
-      let med = await Med.findById({ _id: req.params.id });
-      // Delete post from db
-      await Post.remove({ _id: req.params.id });
+      // Find med by id
+      let substance = await Substance.findById({ _id: req.params._id });
+      // Delete med from db
+      await Substance.remove({ _id: req.params._id });
       console.log("Deleted Med");
-      res.redirect("/profile");
+      res.redirect("/list");
     } catch (err) {
-      res.redirect("/profile");
+      res.redirect("/list");
     }
   },
 };

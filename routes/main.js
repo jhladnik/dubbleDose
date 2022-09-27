@@ -10,6 +10,7 @@ router.get("/", homeController.getIndex);
 router.get("/profile", ensureAuth, medsController.getProfile);
 router.get("/list", ensureAuth, medsController.getList);
 router.get("/addDelete", ensureAuth, medsController.getAddDelete);
+router.post("/add", ensureAuth, medsController.createMed);
 router.get("/history",ensureAuth, medsController.getHistory);
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
