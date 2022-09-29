@@ -28,11 +28,11 @@
                                         <td> <%= meds[i].notes%></td>
                                         <td> <%= meds[i].dosage%></td>
                                         <td>
-                                            <form align="center" action="" method="POST">
+                                            <form align="center" action="/meds/takeMed/<%= meds[i]._id%>?_method=PUT" method="POST">
                                                 <ul class="field actions"><li><input type="submit" value="Take" class="button"/></li>
                                                 </ul>
                                             </form>
-                                            <form align="center" action="/meds/deleteMed/<%= meds[i]%>?_method=DELETE" method="POST">
+                                            <form align="center" action="/meds/deleteMed/<%= meds[i]._id%>?_method=DELETE" method="POST">
                                                 <ul class="field actions"><li><input type="submit" value="Delete" class="button primary"/></li>
                                                 </ul>
                                             </form>

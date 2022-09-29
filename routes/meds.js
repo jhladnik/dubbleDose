@@ -9,7 +9,7 @@ router.get("/list ", ensureAuth, medsController.getList);
 
 router.post("/add", medsController.createMed);
 
-router.put("/takeMed", medsController.takeMed);
+router.put("/takeMed/:id", medsController.takeMed);
 
 router.delete("/deleteMed/:id", medsController.deleteMed);
 

@@ -58,21 +58,19 @@ module.exports = {
       await Med.findOneAndUpdate(
         { _id: req.params.id },
         {
-          $inc: {createdAt: Date.now},
+          $currentDate: {createdAt: Date.now},
         }
       );
       console.log("You've taken your dose");
-      res.redirect("list");
+      res.redirect("/list");
     } catch (err) {
       console.log(err);
     }
   },
   deleteMed: async (req, res) => {
     try {
-      // Find med by id
-      let substance = await Substance.findById({ _id: req.params._id });
       // Delete med from db
-      await Substance.remove({ _id: req.params._id });
+      await Med.remove({ _id: req.params.id });
       console.log("Deleted Med");
       res.redirect("/list");
     } catch (err) {
