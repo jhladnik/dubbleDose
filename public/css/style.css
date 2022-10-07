@@ -1581,3 +1581,92 @@ input, select, textarea {
 		body.is-preload-0 #footer {
 			opacity: 0;
 		}
+
+/* History Grid-related CSS */
+
+:root {
+	--square-size: 15px;
+	--square-gap: 5px;
+	--week-height: calc(var(--square-size) + var(--square-gap));
+  }
+  ul, li{
+	  list-style: none;
+  }
+  .months { grid-area: months; }
+  .days { grid-area: days; }
+  .squares { grid-area: squares; }
+  
+  .graph {
+	display: inline-grid;
+	grid-template-areas: "empty days"
+						 "months squares";
+	grid-template-rows: auto 1fr;
+	grid-gap: 10px;
+  }
+  
+  .months {
+	display: grid;
+	grid-template-rows: calc(var(--week-height) * 4) /* Jan */
+						   calc(var(--week-height) * 4) /* Feb */
+						   calc(var(--week-height) * 4) /* Mar */
+						   calc(var(--week-height) * 5) /* Apr */
+						   calc(var(--week-height) * 4) /* May */
+						   calc(var(--week-height) * 4) /* Jun */
+						   calc(var(--week-height) * 5) /* Jul */
+						   calc(var(--week-height) * 4) /* Aug */
+						   calc(var(--week-height) * 4) /* Sep */
+						   calc(var(--week-height) * 5) /* Oct */
+						   calc(var(--week-height) * 4) /* Nov */
+						   calc(var(--week-height) * 5) /* Dec */;
+  }
+  
+  .days,
+  .squares {
+	display: grid;
+	grid-gap: var(--square-gap);
+	grid-template-columns: repeat(7, var(--square-size));
+  }
+  
+  .squares {
+	grid-auto-flow: row;
+	grid-auto-rows: var(--square-size);
+  }
+  
+  
+  /* Other styling */
+  
+  body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 12px;
+  }
+  
+  .graph {
+	padding: 20px;
+	margin: 20px;
+  }
+  
+  .days li:nth-child(odd) {
+	visibility: hidden;
+  }
+  
+  .squares li {
+	background-color: #ebedf0;
+  }
+  
+  .squares li[data-level="1"] {
+	background-color: #81e6f8;
+  }
+  
+  .squares li[data-level="2"] {
+	background-color: #50bdf3;
+  }
+  
+  .squares li[data-level="3"] {
+	background-color: #065ef6;
+  }
+  .squares li[data-level="4"] {
+	background-color: #0e06f6;
+  }
+  .squares li[data-level="5"] {
+	background-color: #22007f;
+  }
