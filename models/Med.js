@@ -11,6 +11,14 @@ const MedSchema =  new mongoose.Schema({
     type: String,
     required: true,
   },
+  times: {
+    type: Number,
+    required: true,
+  },
+  lastTaken: {
+    type: String,
+    default: Date.now,
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
