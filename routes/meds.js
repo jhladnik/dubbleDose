@@ -13,4 +13,6 @@ router.put("/takeMed/:id", medsController.takeMed);
 
 router.delete("/deleteMed/:id", medsController.deleteMed);
 
+router.get("/history", ensureAuth, medsController.getHistory);
+
 module.exports = router;
