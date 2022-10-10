@@ -17,7 +17,11 @@ const MedSchema =  new mongoose.Schema({
   },
   lastTaken: {
     type: String,
-    default: Date.now,
+    default: new Date(),
+  },
+  type: {
+    type: Number,
+    required: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
