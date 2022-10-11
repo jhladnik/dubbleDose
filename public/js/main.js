@@ -224,6 +224,5 @@
 			// Disable animated links.
 				$('.actions.animated').removeClass('animated');
 
-		}
-
+		}		
 })(jQuery);
