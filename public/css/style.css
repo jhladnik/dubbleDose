@@ -1634,7 +1634,11 @@ input, select, textarea {
   
   
   /* Other styling */
-  
+
+  a {
+	  display:block;
+  }
+
   body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 12px;
@@ -1649,24 +1653,46 @@ input, select, textarea {
 	visibility: hidden;
   }
   
-  .squares li {
-	background-color: #ebedf0;
+  .squares li[data-level="/meds/0"]{
+	background-color: #676d75;
   }
   
-  .squares li[data-level="1"] {
+  .squares li[data-level="/meds/1"] {
 	background-color: #81e6f8;
   }
   
-  .squares li[data-level="2"] {
+  .squares li[data-level="/meds/2"] {
 	background-color: #50bdf3;
   }
   
-  .squares li[data-level="3"] {
+  .squares li[data-level="/meds/3"] {
 	background-color: #065ef6;
   }
-  .squares li[data-level="4"] {
+  .squares li[data-level="/meds/4"] {
 	background-color: #0e06f6;
   }
-  .squares li[data-level="5"] {
+  .squares li[data-level="/meds/5"] {
 	background-color: #22007f;
   }
+  .squares li[data-level="/meds/6"] {
+	background-color: #22007f;
+  }
+  .squares li[data-level="/meds/7"] {
+	background-color: #22007f;
+  }
+  .squares li[data-level="/meds/8"] {
+	background-color: #22007f;
+  }
+  .squares li[data-level="/meds/9"] {
+	background-color: #22007f;
+  }
+  .squares li[data-level="/meds/10"] {
+	background-color: #22007f;
+  }
+  .squares li[data-level="/meds/11"] {
+	background-color: #22007f;
+  }
+  .squares li[data-level="/meds/12"] {
+	background-color: #22007f;
+  }
+/*seek medical attention if you're taking more than 12 doses a day */
