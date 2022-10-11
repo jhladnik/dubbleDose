@@ -17,7 +17,7 @@ const MedSchema =  new mongoose.Schema({
   },
   lastTaken: {
     type: String,
-    default: new Date(),
+    default: new Date().toString(),
   },
   type: {
     type: Number,
