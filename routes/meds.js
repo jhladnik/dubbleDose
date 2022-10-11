@@ -15,4 +15,6 @@ router.delete("/deleteMed/:id", medsController.deleteMed);
 
 router.get("/history", ensureAuth, medsController.getHistory);
 
+router.delete("/deleteHistory/:id", medsController.deleteHistory);
+
 module.exports = router;
