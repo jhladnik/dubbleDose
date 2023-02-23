@@ -12,6 +12,7 @@ router.get("/list", ensureAuth, medsController.getList);
 router.get("/addDelete", ensureAuth, medsController.getAddDelete);
 router.post("/add", ensureAuth, medsController.createMed);
 router.get("/history",ensureAuth, medsController.getHistory);
+router.get("/calendar", ensureAuth, medsController.getCalendar);
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
