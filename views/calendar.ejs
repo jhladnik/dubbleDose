@@ -1,0 +1,40 @@
+<%- include('partials/header') -%>
+
+<article id="history" class="panel secondary">
+    <div class="image">
+        <img src="images/pic03.png" alt="pic of calendar" data-position="center center" />
+    </div>
+        <div class="content">
+                <ul class="actions animated spinX">
+                    <li><a href="/profile" class="button small back">Menu</a></li>
+                </ul>
+            <div class="inner">
+                <header>
+                        <h1><%=today%></h1>
+                    <h3>List:</h3>   
+                </header>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <tbody>
+                            <% for (var i=0; i<userRcds.length; i++) {%>
+                                <tr>
+                                    <td><%= userRcds[i].substance%></td>
+                                    <td><%= userRcds[i].lastTaken%></td>
+                                    <td><%= userRcds[i].dosage%></td>
+                                    <td>
+                                        <form align="center" action="/meds/deleteHistory/<%= userRcds[i]._id%>?_method=DELETE" method="POST">
+                                            <ul class="field actions"><li><input type="submit" value="Delete" class="button primary"/></li>
+                                            </ul>
+                                        </form>
+                                    </td>
+                                     
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</article>
+
+<%- include('partials/footer') -%>
