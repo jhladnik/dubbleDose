@@ -17,4 +17,6 @@ router.get("/history", ensureAuth, medsController.getHistory);
 
 router.delete("/deleteHistory/:id", medsController.deleteHistory);
 
+router.get("/calendar", ensureAuth, medsController.getCalendar);
+
 module.exports = router;
