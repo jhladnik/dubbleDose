@@ -122,4 +122,15 @@ module.exports = {
       res.redirect("/list");
     }
   },
+
+  getCalendar: async (req,res) => {
+    try {
+      const year = await req.query.year || 2023;
+      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novemvber", "December"];
+
+      res.render("calendar.ejs", {calendar: calendar(year), months, year});
+    } catch (err){
+      res.redirect("/profile")
+    }
+  },
 };
